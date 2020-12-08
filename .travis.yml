@@ -1,8 +1,12 @@
 language: python
-python: "3.7"
-node_js: "10.16.3"
+python: '3.7'
+node_js: 10.16.3
 before_install:
-  - npm install dredd@14.0.0 --global
-  - pipenv install
+- npm install dredd@14.0.0 --global
+- pipenv install
 script:
-  - dredd oas.yaml http://127.0.0.1:8000 --language=python --server "uvicorn app:app"
+- dredd oas.yaml http://127.0.0.1:8000 --language=python --server "uvicorn app:app"
+deploy:
+  provider: heroku
+  api_key:
+    secure: cqQTnu9pun4WQHH37pVK9IgMMiuE02j3kf3f60n6HwbFFSlQTUv0GigIkUM10d2WJvJcVmHlck3whkJkdf69dzVz4Z5/ROu6Ys7F1sg2Da7WuceLchYHV5HH1+ScA0TIYIc6wim5Ez3qG/Ws9WAPbYAxK2T0iJnx7NC0NqrMVJSDy2ufgPVDraCdcrslNyRN9c/p/RNip3WbxknB9+uWr+6NVMqK9DUxh/IeEu0BSkRrvi+BdZhenlKx6FuMD4EirKLD89GX2jC1/vI2Q1l4xnA5wLUFpkg1ngo4RvG2JeWY1MzdU0uLGmdZBJ3NXlzG9IIb/r3S/DFesP0dk4ZDipdHK5FYSXaKuh09aDATtukiDb3Pe7KaGTYp2h/BY4UvXJuLCwwq+yDBvvRWcJbaFqckdVqTsko6WjUzyHBmkSdHOSg8uZCjUxZIF6iVumdk3IqSVK+0S/R8qEclnwqe5E41RdrUYek3AP2tiB6DinrSMar7TtKdV5ohygojJuECn65IbcQoshbSNrnDkRlJLMdxRDG3Pc7FzlVPSgxNAHq4uoZNZawsdoSYWToTzHqiDGsxLpGG4LemDVIulIvQENaiGfBpAzPXz6gvRm5E7S7yYjkWqpgiAwgOLCeHtNzK63ALPzoSsnClONhlsgPfKF5yvnR0Tp8LIjsE+bIqHnY=
