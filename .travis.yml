@@ -1,5 +1,7 @@
-language: node_js
+language: python
+python: "3.7"
+node_js: "10.16.3"
 before_install:
   - npm install dredd@14.0.0 --global
-before_script:
+script:
   - dredd oas.yaml http://127.0.0.1:8000 --hookfiles=./hooks.py --language=python --server "uvicorn app:app"
