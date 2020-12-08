@@ -3,9 +3,9 @@ python: '3.7'
 node_js: 10.16.3
 before_install:
 - npm install dredd@14.0.0 --global
-- pipenv install
+- pipenv install --dev
 script:
-- dredd oas.yaml http://127.0.0.1:8000 --language=python --server "uvicorn app:app"
+- dredd oas.yaml http://127.0.0.1:8000 --hookfiles=./hooks.py --language=python --server "uvicorn app:app"
 deploy:
   provider: heroku
   api_key:
