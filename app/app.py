@@ -3,4 +3,4 @@ from fastapi import FastAPI
 app = FastAPI(debug=True)
 
 
-import api
+from app import api

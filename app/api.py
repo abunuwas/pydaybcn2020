@@ -6,8 +6,8 @@ from uuid import UUID
 from fastapi import HTTPException
 from starlette import status
 
-from app import app
-from schemas import GetTaskSchema, CreateTaskSchema
+from app.app import app
+from app.schemas import GetTaskSchema, CreateTaskSchema
 
 TODO = []
 
