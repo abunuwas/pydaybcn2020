@@ -23,7 +23,6 @@ def create_task(payload: CreateTaskSchema):
     task['id'] = uuid.uuid4()
     task['created'] = time.time()
     task['status'] = task['status'].value
-    task['priority'] = task['priority'].value
     TODO.append(task)
     return task
 
@@ -44,7 +43,6 @@ def update_task(task_id: UUID, payload: CreateTaskSchema):
         if task['id'] == task_id:
             task.update(payload.dict())
             task['status'] = task['status'].value
-            task['priority'] = task['priority'].value
             return task
     raise HTTPException(
         status_code=404, detail=f'Task with ID {task_id} not found'

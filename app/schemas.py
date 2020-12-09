@@ -11,12 +11,6 @@ from uuid import UUID
 from pydantic import BaseModel, Field
 
 
-class Priority(Enum):
-    low = 'low'
-    medium = 'medium'
-    high = 'high'
-
-
 class Status(Enum):
     pending = 'pending'
     progress = 'progress'
@@ -24,15 +18,8 @@ class Status(Enum):
 
 
 class CreateTaskSchema(BaseModel):
-    priority: Optional[Priority] = 'low'
     status: Optional[Status] = 'pending'
     task: str
-
-
-class Priority1(Enum):
-    low = 'low'
-    medium = 'medium'
-    high = 'high'
 
 
 class Status1(Enum):
@@ -44,6 +31,5 @@ class Status1(Enum):
 class GetTaskSchema(BaseModel):
     id: UUID
     created: int = Field(..., description='Date in the form of UNIX timestmap')
-    priority: Priority1
     status: Status1
     task: str
