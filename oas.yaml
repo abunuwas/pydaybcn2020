@@ -104,6 +104,13 @@ components:
         - task
       additionalProperties: false
       properties:
+        priority:
+          type: string
+          enum:
+            - low
+            - medium
+            - high
+          default: low
         status:
           type: string
           enum:
@@ -119,6 +126,7 @@ components:
       required:
         - created
         - id
+        - priority
         - status
         - task
       additionalProperties: false
@@ -129,6 +137,13 @@ components:
         created:
           type: integer
           description: Date in the form of UNIX timestmap
+        priority:
+          type: string
+          enum:
+            - low
+            - medium
+            - high
+          default: low
         status:
           type: string
           enum:
